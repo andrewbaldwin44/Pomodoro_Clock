@@ -1,0 +1,141 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Roboto', sans-serif;
+  overflow-y: hidden;
+  overflow-x: hidden;
+}
+
+h1 {
+  color: #ffbfc0;
+}
+
+.noTransition * {
+  -webkit-transition: none !important;
+  -moz-transition: none !important;
+  -ms-transition: none !important;
+  -o-transition: none !important;
+}
+
+h2 {
+  grid-area: 1/1/1/4;
+}
+
+.interfaceButton {
+  font-size: 42px;
+  text-align: center;
+}
+
+
+.settings button {
+  border: none;
+  background: none;
+  width: 10px;
+  margin: 0 10px;
+  padding: 0;
+  font-size: 16px;
+  opacity: 0;
+  transition: opacity 0.5s;
+  transition-timing-function: cubic-bezier(0.1, 0.1, .1, 1);
+}
+
+.settings button:focus {
+  outline: none;
+}
+
+.settings {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: repeat(2, 1fr);
+  margin-top: 40px;
+  height: 120px;
+  font-size: 0;
+  transition: font-size ease-out 0.8s;
+  transition-timing-function: cubic-bezier(0.1, 1.75, 1, 1);
+}
+
+
+#session, #break {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  grid-template-rows: 1fr;
+  text-align: left;
+  align-items: center;
+  width: 60%;
+  margin: 0 auto;
+}
+
+.settingsSelectors {
+  display: flex;
+  margin-left: 20px;
+}
+
+#breakTime, #sessionTime {
+  margin: 0 10px;
+  width: 16px;
+}
+
+.settings, #clock-interface {
+  width: 600px;
+}
+
+#timer {
+  grid-area: 1/1/1/5;
+  text-align: center;
+  font-size: 120px;
+}
+
+#clock-interface {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: 3fr 1fr;
+  grid-row-gap: 25px;
+}
+
+#settingsButton {
+  grid-area: 1/3/1/3;
+  text-align: right;
+  font-size: 24px;
+  right: 0;
+  top: 0;
+  transform-origin: top right;
+  transition: transform .6s;
+}
+
+#play {
+  color: #bbe5bd;
+}
+
+#pause {
+  color: #ffc18e;
+}
+
+#restart {
+  color: #faeeb8;
+  transition: transform .6s;
+}
+
+.buttonRotate {
+  transform: rotate(360deg);
+}
+
+
+.show {
+  font-size: 16px;
+}
+
+.show button {
+  opacity: 1;
+}
+
+/* Pallet:
+    #bbe5bd
+    #ffbfc0
+    #ffc18e
+    #ffdcdc
+    #faeeb8
+*/
