@@ -14,6 +14,10 @@ h1 {
   color: #ffbfc0;
 }
 
+h2 {
+  grid-area: 1/1/1/4;
+}
+
 .noTransition * {
   -webkit-transition: none !important;
   -moz-transition: none !important;
@@ -21,45 +25,40 @@ h1 {
   -o-transition: none !important;
 }
 
-h2 {
-  grid-area: 1/1/1/4;
-}
-
 .interfaceButton {
   font-size: 42px;
   text-align: center;
 }
 
-
-.settings button {
+.settingsDiv button {
   border: none;
   background: none;
   width: 10px;
-  margin: 0 10px;
+  margin: 0 20px;
   padding: 0;
-  font-size: 16px;
+  font-size: 24px;
   opacity: 0;
   transition: opacity 0.5s;
-  transition-timing-function: cubic-bezier(0.1, 0.1, .1, 1);
+  transition-timing-function: cubic-bezier(.95, .05, .8, .4);
 }
 
-.settings button:focus {
-  outline: none;
-}
-
-.settings {
+.settingsDiv {
   display: grid;
   grid-template-columns: 1fr;
   grid-template-rows: repeat(2, 1fr);
   margin-top: 40px;
   height: 120px;
   font-size: 0;
-  transition: font-size ease-out 0.8s;
-  transition-timing-function: cubic-bezier(0.1, 1.75, 1, 1);
+  transition: font-size 0.8s;
+  transition-timing-function: cubic-bezier(.68, -0.55, .27, 1.55);
+}
+
+.settingsDiv button:focus {
+  outline: none;
 }
 
 
-#session, #break {
+#sessionSettings, #breakSettings {
   display: grid;
   grid-template-columns: 2fr 1fr;
   grid-template-rows: 1fr;
@@ -74,16 +73,16 @@ h2 {
   margin-left: 20px;
 }
 
-#breakTime, #sessionTime {
+#breakTimeSelector, #sessionTimeSelector {
   margin: 0 10px;
   width: 16px;
 }
 
-.settings, #clock-interface {
+.settingsDiv, #clock-interface {
   width: 600px;
 }
 
-#timer {
+#clockDisplay {
   grid-area: 1/1/1/5;
   text-align: center;
   font-size: 120px;
@@ -91,32 +90,68 @@ h2 {
 
 #clock-interface {
   display: grid;
+  margin-top: 50px;
   grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: 3fr 1fr;
+  grid-template-rows: 3fr 1fr 1fr;
   grid-row-gap: 25px;
 }
 
-#settingsButton {
+.roundIndicatorDiv {
+  grid-area: 2/1/2/5;
+  display: flex;
+  align-content: center;
+  justify-content: center;
+}
+
+.roundIndicator {
+  border: 1px solid #55bb5a;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+}
+
+.roundIndicator:not(:first-child) {
+  margin-left: 20px;
+}
+
+.roundCompleted {
+  background-color: #55bb5a;
+}
+
+#settingsButtonContainer {
   grid-area: 1/3/1/3;
   text-align: right;
   font-size: 24px;
   right: 0;
   top: 0;
+}
+
+#settingsButton {
   transform-origin: top right;
   transition: transform .6s;
 }
 
-#play {
+#playButton {
   color: #bbe5bd;
 }
 
-#pause {
+#pauseButton {
   color: #ffc18e;
 }
 
-#restart {
+#restartButton {
   color: #faeeb8;
-  transition: transform .6s;
+}
+
+.resetRotate {
+  animation-name: resetRotate;
+  animation-duration: 1s;
+}
+
+@keyframes resetRotate {
+  100% {
+    transform: rotate(720deg);
+  }
 }
 
 .buttonRotate {
@@ -125,7 +160,7 @@ h2 {
 
 
 .show {
-  font-size: 16px;
+  font-size: 24px;
 }
 
 .show button {

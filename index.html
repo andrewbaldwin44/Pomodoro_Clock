@@ -7,32 +7,37 @@
     <h1>Pomodoro Clock</h1>
   </head>
   <body class="noTransition">
-
     <section id="clock-interface">
-      <span id="timer">25:00</span>
-      <span class='interfaceButton' id="settingsButton"><i class="fas fa-wrench"></i></span>
-      <span class="interfaceButton" id="play"><i class="fas fa-play-circle"></i></span>
-      <span class="interfaceButton" id="pause"><i class="fas fa-pause-circle"></i></span>
-      <span class="interfaceButton" id="restart"><i class="fas fa-redo"></i></span>
+      <span id="clockDisplay">25:00</span>
+      <div class="roundIndicatorDiv">
+        <div class="roundIndicator"></div>
+        <div class="roundIndicator"></div>
+        <div class="roundIndicator"></div>
+        <div class="roundIndicator"></div>
+      </div>
+      <span class='interfaceButton' id='settingsButtonContainer'><i id="settingsButton" class="fas fa-wrench"></i></span>
+      <span class="interfaceButton" id="playButton"><i class="fas fa-play-circle"></i></span>
+      <span class="interfaceButton" id="pauseButton"><i class="fas fa-pause-circle"></i></span>
+      <span class="interfaceButton" id="restartButton"><i class="fas fa-redo"></i></span>
     </section>
-        <section class="settings">
-          <section id="session">
-            <p>Session:</p>
-            <div class="settingsSelectors">
-              <button class="increment arrowButton" value=1><i class="fas fa-chevron-up"></i></button>
-              <span id="sessionTime">25</span>
-              <button class="decrement arrowButton" value=-1><i class="fas fa-chevron-down"></i></button>
-            </div>
-          </section>
-          <section id="break">
-            <p>Break:</p>
-            <div class="settingsSelectors">
-              <button class="increment arrowButton" value=1><i class="fas fa-chevron-up"></i></button>
-              <span id="breakTime">5</span>
-              <button class="decrement arrowButton" value=-1><i class="fas fa-chevron-down"></i></button>
-            </div>
-          </section>
-        </section>
+    <section class="settingsDiv">
+      <section id="sessionSettings">
+        <p>Session:</p>
+        <div class="settingsSelectors">
+          <button class="increment arrowButton" value=1><i class="fas fa-chevron-up"></i></button>
+          <span id="sessionTimeSelector">25</span>
+          <button class="decrement arrowButton" value=-1><i class="fas fa-chevron-down"></i></button>
+        </div>
+      </section>
+      <section id="breakSettings">
+        <p>Break:</p>
+        <div class="settingsSelectors">
+          <button class="increment arrowButton" value=1><i class="fas fa-chevron-up"></i></button>
+          <span id="breakTimeSelector">5</span>
+          <button class="decrement arrowButton" value=-1><i class="fas fa-chevron-down"></i></button>
+        </div>
+      </section>
+    </section>
   <link rel="stylesheet" type="text/css" href="style.css">
   <script src="script.js"></script>
 </html>
