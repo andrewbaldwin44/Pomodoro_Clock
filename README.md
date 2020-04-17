@@ -6,7 +6,7 @@
 ## Authors
 
 👤 **Andrew Baldwin**
-👤 **Tunztunztunz**
+👤 **Dustin Simensen**
 
 - Github: [@tunztunztunz](https://github.com/tunztunztunz)
 - Github: [@andrewbaldwin44](https://github.com/andrewbaldwin44)
