@@ -3,6 +3,7 @@
 
 :root {
   --green-color: #6BD425;
+  --blue-color: #2B59C3;
 }
 
 body {
@@ -59,7 +60,7 @@ h2 {
   display: grid;
   grid-template-columns: 1fr;
   grid-template-rows: repeat(2, 1fr);
-  margin-top: 10%;
+  margin-top: 5%;
   font-weight: 300;
   font-size: 0;
   transition: font-size 0.8s;
@@ -109,6 +110,10 @@ h2 {
   grid-row-gap: 2vh;
 }
 
+.breakTimeColor {
+  color: var(--blue-color);
+}
+
 .roundIndicatorDiv {
   grid-area: 2/1/2/5;
   display: flex;
@@ -149,7 +154,7 @@ h2 {
 }
 
 #pauseButton {
-  color: #2B59C3;
+  color: var(--blue-color);
 }
 
 #restartButton {
@@ -216,14 +221,31 @@ h2 {
   opacity: 1;
 }
 
-@media (max-width: 1200px) {
+@media (max-width: 1000px) {
   h1 {font-size: 4rem;}
-  #clockDisplay {font-size: 14rem;}
+
+  #clockDisplay {font-size: 10rem;}
+
+  #clock-interface {
+    grid-template-rows: 1fr 0.5fr 1fr;
+  }
+
   .roundIndicator {
     width: 40px;
     height: 40px;
   }
+
+  #settingsButton {font-size: 2.5rem;}
+
   .interfaceButton {
-    font-size: 5rem;
+    font-size: 6rem;
+  }
+
+  #sessionSettings, #breakSettings {
+    width: 80%;
+  }
+
+  .show {
+    font-size: 2rem;
   }
 }

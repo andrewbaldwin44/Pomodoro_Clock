@@ -17,7 +17,8 @@ class Clock {
     this.roundCounter = 0;
 
     this.startBreakChime = new Audio("assets/sounds/timer_end.mp3");
-    this.endBreakChime = new Audio("assets/sounds/big_daddy.mp3");
+    this.endBreakChime = new Audio("assets/sounds/break.wav");
+    this.endCycleChime = new Audio('assets/sounds/long-break.wav');
   }
 
   initializeEventListeners() {
@@ -60,7 +61,7 @@ class Clock {
       this.seconds = this.padZeroes(this.clock.getSeconds());
       this.setClockDisplay(this.minutes, this.seconds);
       if (this.minutes <= 0 && this.seconds <= 0) this.switchSessionBreak();
-    }, 1000);
+    }, 10);
   }
 
   setClockValues() {
@@ -98,16 +99,19 @@ class Clock {
   switchSessionBreak() {
     clearInterval(this.countDown);
     if (this.cycleEnd()) {
+      this.endCycleChime.play();
       this.restartCycle();
     } else if (this.onBreak) {
       this.onBreak = false;
       this.endBreakChime.play();
+      this.clockDisplay.classList.remove('breakTimeColor');
       this.startClock();
     } else if (!this.onBreak) {
       this.roundCounter += 1;
       this.fillRoundCounter();
       this.onBreak = true;
       this.startBreakChime.play();
+      this.clockDisplay.classList.add('breakTimeColor');
       this.startClock();
     }
   }
@@ -144,6 +148,7 @@ class Clock {
     this.onBreak = false;
     this.roundCounter = 0;
     this.resetRoundCounters();
+    this.clockDisplay.classList.remove('breakTimeColor');
     this.titleDisplay.textContent = 'Pomodoro Clock';
   }
 
