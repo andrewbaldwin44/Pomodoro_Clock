@@ -1,17 +1,29 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap');
+
+:root {
+  --green-color: #6BD425;
+}
 
 body {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  font-family: 'Roboto', sans-serif;
   overflow-y: hidden;
   overflow-x: hidden;
+  font-family: 'Roboto', sans-serif;
+  font-size: 24px;
+  color: #273E47;
+  background-color: #FFFCF2;
+
 }
 
 h1 {
-  color: #ffbfc0;
+  color: #ED6A5E;
+  font-family: 'Fredoka One', cursive;
+  font-size: 2.5rem;
+  margin-top: 5vh;
 }
 
 h2 {
@@ -26,17 +38,18 @@ h2 {
 }
 
 .interfaceButton {
-  font-size: 42px;
+  font-size: 2.5rem;
   text-align: center;
 }
 
 .settingsDiv button {
   border: none;
   background: none;
-  width: 10px;
+  width: 2rem;
   margin: 0 20px;
   padding: 0;
-  font-size: 24px;
+  font-size: inherit;
+  font-weight: 300;
   opacity: 0;
   transition: opacity 0.5s;
   transition-timing-function: cubic-bezier(.95, .05, .8, .4);
@@ -46,8 +59,8 @@ h2 {
   display: grid;
   grid-template-columns: 1fr;
   grid-template-rows: repeat(2, 1fr);
-  margin-top: 40px;
-  height: 120px;
+  margin-top: 10%;
+  font-weight: 300;
   font-size: 0;
   transition: font-size 0.8s;
   transition-timing-function: cubic-bezier(.68, -0.55, .27, 1.55);
@@ -56,7 +69,6 @@ h2 {
 .settingsDiv button:focus {
   outline: none;
 }
-
 
 #sessionSettings, #breakSettings {
   display: grid;
@@ -79,21 +91,22 @@ h2 {
 }
 
 .settingsDiv, #clock-interface {
-  width: 600px;
+  max-width: 600px;
+  width: 60%;
 }
 
 #clockDisplay {
   grid-area: 1/1/1/5;
   text-align: center;
-  font-size: 120px;
+  font-size: 7rem;
 }
 
 #clock-interface {
   display: grid;
-  margin-top: 50px;
+  margin-top: 4vh;
   grid-template-columns: repeat(3, 1fr);
   grid-template-rows: 3fr 1fr 1fr;
-  grid-row-gap: 25px;
+  grid-row-gap: 2vh;
 }
 
 .roundIndicatorDiv {
@@ -104,7 +117,7 @@ h2 {
 }
 
 .roundIndicator {
-  border: 1px solid #55bb5a;
+  border: 1px solid var(--green-color);
   width: 20px;
   height: 20px;
   border-radius: 50%;
@@ -115,13 +128,13 @@ h2 {
 }
 
 .roundCompleted {
-  background-color: #55bb5a;
+  background-color: var(--green-color);
 }
 
 #settingsButtonContainer {
   grid-area: 1/3/1/3;
   text-align: right;
-  font-size: 24px;
+  font-size: inherit;
   right: 0;
   top: 0;
 }
@@ -132,15 +145,33 @@ h2 {
 }
 
 #playButton {
-  color: #bbe5bd;
+  color: var(--green-color);
 }
 
 #pauseButton {
-  color: #ffc18e;
+  color: #2B59C3;
 }
 
 #restartButton {
-  color: #faeeb8;
+  color: #FF6700;
+}
+
+.fa-pause-circle, .fa-play-circle, .fa-redo {
+  opacity: 0.8;
+}
+
+.fa-pause-circle:hover, .fa-play-circle:hover, .fa-redo:hover {
+  opacity: 1;
+}
+
+.fa-pause-circle:active {
+  color: #2751b3;
+}
+.fa-play-circle:active {
+  color: #5bb520;
+}
+.fa-redo:active {
+  color: #ec612a;
 }
 
 .resetRotate {
@@ -154,23 +185,45 @@ h2 {
   }
 }
 
-.buttonRotate {
+.buttonShake {
+  animation-name: shake;
+  animation-duration: 0.4s;
+}
+
+@keyframes shake {
+  0% {transform: translate(1px, 1px) rotate(0deg)}
+  10% {transform: translate(-1px, -2px) rotate(-1deg)}
+  20% {transform: translate(-3px, 0px) rotate(1deg)}
+  30% {transform: translate(3px, 2px) rotate(0deg);}
+  40% {transform: translate(1px, -1px) rotate(1deg)}
+  50% {transform: translate(-1px, 2px) rotate(-1deg)}
+  60% {transform: translate(-3px, 1px) rotate(0deg)}
+  70% {transform: translate(3px, 1px) rotate(-1deg)}
+  80% {transform: translate(-1px, -1px) rotate(1deg)}
+  90% {transform: translate(1px, 2px) rotate(0deg)}
+  100% {transform: translate(1px, -2px) rotate(-1deg)}
+}
+
+.wrenchRotate {
   transform: rotate(360deg);
 }
 
-
 .show {
-  font-size: 24px;
+  font-size: inherit;
 }
 
 .show button {
   opacity: 1;
 }
 
-/* Pallet:
-    #bbe5bd
-    #ffbfc0
-    #ffc18e
-    #ffdcdc
-    #faeeb8
-*/
+@media (max-width: 1200px) {
+  h1 {font-size: 4rem;}
+  #clockDisplay {font-size: 14rem;}
+  .roundIndicator {
+    width: 40px;
+    height: 40px;
+  }
+  .interfaceButton {
+    font-size: 5rem;
+  }
+}
