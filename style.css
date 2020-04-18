@@ -220,7 +220,7 @@ h2 {
   opacity: 1;
 }
 
-/* @media (max-width: 1000px) {
+@media (max-width: 1000px) {
   h1 {font-size: 4rem;}
 
   #clockDisplay {font-size: 13rem;}
@@ -256,10 +256,10 @@ h2 {
   }
 
   #sessionSettings, #breakSettings {
-    width: 80%;
+    width: 100vw;
   }
 
   .show {
     font-size: 3.5rem;
   }
-} */
+}
