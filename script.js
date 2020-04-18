@@ -61,7 +61,7 @@ class Clock {
       this.seconds = this.padZeroes(this.clock.getSeconds());
       this.setClockDisplay(this.minutes, this.seconds);
       if (this.minutes <= 0 && this.seconds <= 0) this.switchSessionBreak();
-    }, 10);
+    }, 1000);
   }
 
   setClockValues() {
@@ -137,6 +137,7 @@ class Clock {
   }
 
   restartClock(minutes = this.sessionTimeSelector.textContent) {
+    this.isPaused = false;
     this.playButton.classList.remove('disabled');
     clearInterval(this.countDown);
     this.setClockDisplay(minutes, '00');
@@ -144,7 +145,6 @@ class Clock {
 
   restartCycle() {
     this.restartClock();
-    this.isPaused = false;
     this.onBreak = false;
     this.roundCounter = 0;
     this.resetRoundCounters();
